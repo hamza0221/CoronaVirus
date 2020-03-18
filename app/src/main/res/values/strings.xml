@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CoronaVirus</string>
+    <string name="textTitle">هل شريك حياتك يحبك ؟</string>
+    <string name="btnExit">خروج </string>
+    <string name="sharefriends">شارك مع أصدقائك  </string>
+    <string name="btnStart">ابدأ الاختبار </string>
+    <string name="TextstartStatus">هل أنت مستعد لمعرفة ما يجري وراء علاقتك العاطفية ؟</string>
+    <string name="btnNext">السؤال التالي</string>
+    <string name="TextStats">النتيجة </string>
+    <string name="TextAdvices">النصائح </string>
+    <string name="TextRating">⭐ تقييم التطبيقة و شكراً</string>
+    <string name="textResultLove">نسبة مرضك بفيروس الكورونا هي </string>
+    <string name="textResultLovePercent">0 بالمئة</string>
+    <string name="textshare"> شارك النتيجة </string>
+    <string name="textrepeat"> 🔁 إعادة الاختبار</string>
+    <string name="linkApp">https://www.youtube.com/watch?v=JBOAU09HgsI</string>
+    <string name="banner1_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+</resources>

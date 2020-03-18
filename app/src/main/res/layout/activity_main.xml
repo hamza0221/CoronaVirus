@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+          <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/IdButton_quiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:drawableTop="@mipmap/ic_launcher_round"
+                    android:text="إختبار : هل أنت مصاب بمرض الكورونا"/>
+
+                <Button
+                    android:id="@+id/IdButton_Statistics"
+                    android:layout_width="match_parent"
+                    android:drawableTop="@mipmap/ic_launcher_round"
+                    android:text="إحصائيات كورونا حول العالم"
+                    android:layout_height="200dp" />
+                <Button
+                    android:id="@+id/IdButton_Infos"
+                    android:layout_width="match_parent"
+                    android:drawableTop="@mipmap/ic_launcher_round"
+                    android:text="معلومات حول الكورونا "
+                    android:layout_height="200dp" />
+                <Button
+                    android:id="@+id/IdButton_protection"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:drawableTop="@mipmap/ic_launcher_round"
+                    android:text="كيفية الوقاية من الكورونا "
+                    />
+            </LinearLayout>
+
+
+        </ScrollView>
+</RelativeLayout>

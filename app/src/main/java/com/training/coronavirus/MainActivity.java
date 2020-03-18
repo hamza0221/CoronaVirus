@@ -1,0 +1,112 @@
+package com.training.coronavirus;
+
+import android.content.Intent;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.training.coronavirus.BaseActivity;
+import com.training.coronavirus.DBHandler;
+import com.training.coronavirus.Question;
+import com.training.coronavirus.R;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+
+    ArrayList<Question> questionsData = new ArrayList<Question>();
+    static final String QUESTIONS_KEY = "QUESTIONS";
+    Button butt_Quiz,Butt_Statistics,Butt_protection,Infos_Corona;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //binding
+        butt_Quiz = (Button) findViewById(R.id.IdButton_quiz);
+        Butt_protection = (Button) findViewById(R.id.IdButton_protection);
+        Butt_Statistics = (Button) findViewById(R.id.IdButton_Statistics);
+        Infos_Corona = (Button) findViewById(R.id.IdButton_Infos);
+        butt_Quiz.setOnClickListener(this);
+        Butt_protection.setOnClickListener(this);
+        Butt_Statistics.setOnClickListener(this);
+        Infos_Corona.setOnClickListener(this);
+
+
+
+        DBHandler db = new DBHandler(this);
+        //Adding all Questions
+        Log.d("Insert: ", "Inserting questions..");
+        db.addQuestion(new Question(0, "هل تشعر بإرتفاع في درجة الحرارة الشديدة ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدً ", "قليلا ", "ممكن", "لا ")))));
+        db.addQuestion(new Question(1, "هل تشعر بسعال جاف يصاحبه سخونة شديدة ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكد", "قليلاً ", "ممكن", "لا")))));
+        db.addQuestion(new Question(2, "هل لاحظت تغير في لون الشفاه الطبيعي ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلا ", "ممكن", "لا")))));
+        db.addQuestion(new Question(3, "هل تشعر بهمدان شديد وعدم القدرة على بذل أي مجهود ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكد", "قليلا ", "ممكن", "لا")))));
+        db.addQuestion(new Question(4, "هل تشعر بفقدان للشهية مع صعوبة في البلع ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلاً ", "ممكن", "لا")))));
+        db.addQuestion(new Question(5, "هل تشعر باضطراب في درجة الوعي ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلاً ", "ممكن", "لا")))));
+        db.addQuestion(new Question(7, "هل تشعر بإلتهاب في الرئة ؟ ", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلاً ", "ممكن", "لا")))));
+        db.addQuestion(new Question(8, "هل يتحدث لك عن نفسه و يسألك عن رأيك باستمرار؟ ", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلا ", "ممكن", "لا")))));
+
+        Log.d("finish: ", "Questions inserted..");
+
+        //reading all the Questions
+        Log.d("Reading: ", "Reading all questions..");
+        questionsData = db.getAllQuestions();
+
+
+        for (Question question : questionsData) {
+            // Writing shops  to log
+            Log.d("Question: : ", question.toString());
+        }
+        //finish reading all the Questions
+        Log.d("Reading:  ", "finish getting question List..");
+
+        setupAdAtBottom();
+
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+          /* case R.id.btnExit:
+                finish();
+                System.exit(0);
+                break;*/
+
+            case R.id.IdButton_quiz:
+                Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                intent.putParcelableArrayListExtra(QUESTIONS_KEY, questionsData);
+                startActivity(intent);
+                finish();
+                break;
+           /* case R.id.sharefriends:
+                Log.e("share", "share");
+                Intent intentshare = new Intent();
+                intentshare.setAction(Intent.ACTION_SEND);
+                intentshare.setType("text/plain");
+                intentshare.putExtra(Intent.EXTRA_TEXT, " جرب الاختبار ، تعرف على نسبة حب شريكك لك وخذ نصائح خبراء النفس و العلاقات العاطفية " + getResources().getText(R.string.linkApp));
+                startActivity(Intent.createChooser(intentshare, "Share"));
+                break;*/
+            case R.id.IdButton_Statistics:
+
+                break;
+            case R.id.IdButton_protection:
+
+                break;
+            case R.id.IdButton_Infos:
+
+                break;
+
+        }
+
+    }
+}
