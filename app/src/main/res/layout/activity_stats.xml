@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,14 +11,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/repeat"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:drawableLeft="@drawable/playvideo"
         android:drawablePadding="12dp"
         android:gravity="center"
         android:text="@string/TextAdvices"
         android:textColor="#4CAF50"
         android:textSize="40dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeat" />
 
     <TextView
         android:id="@+id/share"
@@ -25,14 +29,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textResultLovePercent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:drawableRight="@drawable/shareicon"
         android:drawablePadding="7dp"
         android:gravity="center"
         android:text="@string/textshare"
         android:textColor="#7986CB"
         android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResultLovePercent" />
 
     <TextView
         android:id="@+id/repeat"
@@ -40,13 +47,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/share"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/textrepeat"
-        android:textColor="#29B6F6"
 
+        android:textColor="#29B6F6"
         android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share" />
 
     <ImageView
         android:id="@+id/imageheart"
@@ -55,6 +65,10 @@
         android:layout_below="@+id/textstats"
         android:layout_centerHorizontal="true"
 
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textstats"
         app:srcCompat="@drawable/logo_app" />
 
     <TextView
@@ -63,9 +77,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageheart"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:text="@string/textResultLove"
         android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageheart" />
 
     <TextView
         android:id="@+id/textResultLovePercent"
@@ -73,12 +91,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textResultLove"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/textResultLovePercent"
         android:textColor="#76FF03"
         android:textSize="40dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResultLove" />
 
     <TextView
         android:id="@+id/textstats"
@@ -86,8 +107,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="@string/TextStats"
         android:textSize="42dp"
-        android:textStyle="bold" />
-</RelativeLayout>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
