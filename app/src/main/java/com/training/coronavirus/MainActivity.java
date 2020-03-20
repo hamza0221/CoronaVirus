@@ -86,7 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
                 intent.putParcelableArrayListExtra(QUESTIONS_KEY, questionsData);
                 startActivity(intent);
-                finish();
+
                 break;
            /* case R.id.sharefriends:
                 Log.e("share", "share");
@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(Intent.createChooser(intentshare, "Share"));
                 break;*/
             case R.id.IdButton_Statistics:
-
+startActivity(new Intent(this,StatisticesActivity.class));
                 break;
             case R.id.IdButton_protection:
 

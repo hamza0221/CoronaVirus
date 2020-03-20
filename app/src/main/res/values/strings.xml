@@ -15,5 +15,9 @@
     <string name="textrepeat"> 🔁 إعادة الاختبار</string>
     <string name="linkApp">https://www.youtube.com/watch?v=JBOAU09HgsI</string>
     <string name="banner1_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="title_activity_statistices">StatisticesActivity</string>
+    <string name="coronavirus_cases">Coronavirus Cases:</string>
+    <string name="deaths">Deaths</string>
+    <string name="recovered">Recovered</string>
 
 </resources>
