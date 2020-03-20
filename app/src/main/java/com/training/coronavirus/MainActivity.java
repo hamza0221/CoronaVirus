@@ -121,6 +121,9 @@ public class MainActivity extends BaseActivity implements  CoronaAdapter.ItemCli
             case 1:startActivity(new Intent(this,StatisticesActivity.class));
              break;
 
+            case 2:startActivity(new Intent(this,CoronaInfo.class));
+                break;
+
         }
     }
 }

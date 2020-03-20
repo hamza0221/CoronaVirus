@@ -1,6 +1,8 @@
 package com.training.coronavirus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,7 +31,13 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
 
     int k, radioId, i = 0, score = 0, count_size;
     private InterstitialAd mInterstitialAd;
-
+    private AlertDialog noResponseDialog;
+    private DialogInterface.OnClickListener dialogListener=new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            noResponseDialog.dismiss();
+        }
+    };
 
 
     @Override
@@ -43,6 +51,8 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
         next = (TextView) findViewById(R.id.btnNext);
         next.setOnClickListener(this);
 
+        noResponseDialog=new AlertDialog.Builder(this).setPositiveButton("حسنا", dialogListener
+        ).setMessage("يجب عليك اختيار اجابة").create();
 
         k = 0;
 
@@ -182,7 +192,15 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
                     }
 
                 if (m < questionData.size())
-                    getQuestions(m);
+                {
+
+                    if(getIndexofSelectedRadioButton()!=-1)
+                        getQuestions(m);
+
+                    else
+                        noResponseDialog.show();
+
+                }
 
 
 

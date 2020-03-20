@@ -13,7 +13,7 @@ import java.util.List;
 public class CoronaAdapter extends RecyclerView.Adapter<CoronaAdapter.MyViewHolder> {
 public interface ItemClickListener{
 
-    public void onItemClickListener(int position);
+    void onItemClickListener(int position);
 
 
 }

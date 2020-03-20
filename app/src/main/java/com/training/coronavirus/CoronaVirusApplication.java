@@ -3,6 +3,8 @@ package com.training.coronavirus;
 import android.app.Application;
 import android.webkit.WebView;
 
+
+
 public class CoronaVirusApplication extends Application {
 
 
@@ -13,6 +15,8 @@ public class CoronaVirusApplication extends Application {
 
         Singleton.myWebView=new WebView(this);
         Singleton.setUpWebView();
+        Singleton.myWebViewInformation=new WebView(this);
+        Singleton.setUpWebViewInformation();
 
     }
 }
