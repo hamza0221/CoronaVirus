@@ -79,13 +79,14 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.textAdvices:
-                rewarded =false;
+              /*  rewarded =false;
                 if (mRewardedVideoAd.isLoaded()) {
                     mRewardedVideoAd.show();
                 }
                     else{
                         loadRewardedVideoAd();
-                }
+                }*/
+                ShowResult();
 
 
                 break;
@@ -157,8 +158,8 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onRewardedVideoAdClosed() {
-        if (rewarded)
-            ShowResult();
+        //if (rewarded)
+           // ShowResult();
 
     }
 

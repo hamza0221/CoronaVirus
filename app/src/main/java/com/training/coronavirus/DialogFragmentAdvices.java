@@ -145,17 +145,17 @@ public class DialogFragmentAdvices extends DialogFragment implements View.OnClic
     }
 
     ArrayList<String> GetAdvicesaccordingtoPercentage(int score){
-     if (score < 30){
-         return record.getLessof30percent();
+     if (score < 50){
+         return record.getLessof50percent();
 
      }
 
-     else if (isBetween(score,30,50)){
-         return record.getBetween30And50();
-
-     }
      else if (isBetween(score,50,80)){
          return record.getBetween50And80();
+
+     }
+     else if (isBetween(score,80,100)){
+         return record.getBetween80And100();
 
 
      }
