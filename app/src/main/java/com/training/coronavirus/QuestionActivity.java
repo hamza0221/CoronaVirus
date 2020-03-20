@@ -87,7 +87,7 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
 
         question.setText(questionData.get(k).getText().toString());
 
-        questionNo.setText("السؤال " + (questionData.get(k).getId() + 1) + " من 15 سؤالاً");
+        questionNo.setText("السؤال " + (questionData.get(k).getId() + 1) + " من 8 أسئلةً");
         Log.d("listchoices", questionData.get(k).getChoicesList().toString());
 
 
@@ -172,7 +172,7 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
 
 
                 int m = ++i;
-                if (m==2 || m==5|| m==8 || m ==10 || m==12|| m==14)
+                if (m==2 || m==5|| m==7)
                     if (mInterstitialAd.isLoaded()) {
                         mInterstitialAd.show();
                     } else {

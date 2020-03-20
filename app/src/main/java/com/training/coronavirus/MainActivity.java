@@ -45,14 +45,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         DBHandler db = new DBHandler(this);
         //Adding all Questions
         Log.d("Insert: ", "Inserting questions..");
-        db.addQuestion(new Question(0, "هل تشعر بإرتفاع في درجة الحرارة الشديدة ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدً ", "قليلا ", "ممكن", "لا ")))));
-        db.addQuestion(new Question(1, "هل تشعر بسعال جاف يصاحبه سخونة شديدة ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكد", "قليلاً ", "ممكن", "لا")))));
-        db.addQuestion(new Question(2, "هل لاحظت تغير في لون الشفاه الطبيعي ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلا ", "ممكن", "لا")))));
-        db.addQuestion(new Question(3, "هل تشعر بهمدان شديد وعدم القدرة على بذل أي مجهود ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكد", "قليلا ", "ممكن", "لا")))));
-        db.addQuestion(new Question(4, "هل تشعر بفقدان للشهية مع صعوبة في البلع ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلاً ", "ممكن", "لا")))));
-        db.addQuestion(new Question(5, "هل تشعر باضطراب في درجة الوعي ؟", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلاً ", "ممكن", "لا")))));
-        db.addQuestion(new Question(7, "هل تشعر بإلتهاب في الرئة ؟ ", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلاً ", "ممكن", "لا")))));
-        db.addQuestion(new Question(8, "هل يتحدث لك عن نفسه و يسألك عن رأيك باستمرار؟ ", String.valueOf(new Gson().toJson(Arrays.asList("نعم أنا متأكدا", "قليلا ", "ممكن", "لا")))));
+        db.addQuestion(new Question(0, "هل تشعر بإرتفاع في درجة الحرارة الشديدة ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا ", "ممكن", "قليلاً", "نعم أنا متأكدا ")))));
+        db.addQuestion(new Question(1, "هل تشعر بسعال جاف يصاحبه سخونة شديدة ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
+        db.addQuestion(new Question(2, "هل لديك سيلان في الأنف ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
+        db.addQuestion(new Question(3, "هل لديك التهاب في الحلق ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
+        db.addQuestion(new Question(4, "هل تشعر بهمدان شديد وعدم القدرة على بذل أي مجهود ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
+        db.addQuestion(new Question(5, "هل تشعر بفقدان للشهية مع صعوبة في البلع ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
+        db.addQuestion(new Question(6, "هل تشعر باضطراب في درجة الوعي ؟", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
+        db.addQuestion(new Question(7, "هل تشعر بإلتهاب في الرئة ؟ ", String.valueOf(new Gson().toJson(Arrays.asList("لا", "ممكن", "قليلاً", "نعم أنا متأكدا")))));
 
         Log.d("finish: ", "Questions inserted..");
 
