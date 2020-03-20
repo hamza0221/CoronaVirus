@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.Gson;
 import com.training.coronavirus.BaseActivity;
 import com.training.coronavirus.DBHandler;
@@ -17,23 +20,49 @@ import com.training.coronavirus.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements  CoronaAdapter.ItemClickListener {
 
     ArrayList<Question> questionsData = new ArrayList<Question>();
     static final String QUESTIONS_KEY = "QUESTIONS";
-    Button butt_Quiz,Butt_Statistics,Butt_protection,Infos_Corona;
 
+    RecyclerView recyclerView;
+    private CoronaAdapter coronaAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recyclerView=findViewById(R.id.recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
+        List<String> coronaTextList=new ArrayList<>();
+        List<Integer> coronaImages=new ArrayList<>();
+
+        coronaImages.add(R.mipmap.corona);
+        coronaImages.add(R.mipmap.corona_map);
+        coronaImages.add(R.mipmap.corona_info);
+        coronaImages.add(R.mipmap.corona_prevention);
+
+
+
+        coronaTextList.add("إختبار : هل أنت مصاب بمرض الكورونا");
+        coronaTextList.add("إحصائيات كورونا حول العالم");
+        coronaTextList.add("معلومات حول الكورونا");
+        coronaTextList.add("كيفية الوقاية من الكورونا");
+        coronaAdapter=new CoronaAdapter();
+        coronaAdapter.setCoronaItems(coronaTextList);
+        coronaAdapter.setCoronaImages(coronaImages);
+      coronaAdapter.setItemClickListener(this);
+        recyclerView.setAdapter(coronaAdapter);
+
+
+
 
 
         //binding
-        butt_Quiz = (Button) findViewById(R.id.IdButton_quiz);
+      /*  butt_Quiz = (Button) findViewById(R.id.IdButton_quiz);
         Butt_protection = (Button) findViewById(R.id.IdButton_protection);
         Butt_Statistics = (Button) findViewById(R.id.IdButton_Statistics);
         Infos_Corona = (Button) findViewById(R.id.IdButton_Infos);
@@ -41,7 +70,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Butt_protection.setOnClickListener(this);
         Butt_Statistics.setOnClickListener(this);
         Infos_Corona.setOnClickListener(this);
-
+*/
 
 
         DBHandler db = new DBHandler(this);
@@ -73,42 +102,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setupAdAtBottom();
 
 
+
+
+
+
     }
 
-
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-          /* case R.id.btnExit:
-                finish();
-                System.exit(0);
-                break;*/
+    public void onItemClickListener(int position) {
+        switch (position)
+        { case 0:      Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+            intent.putParcelableArrayListExtra(QUESTIONS_KEY, questionsData);
+            startActivity(intent);
 
-            case R.id.IdButton_quiz:
-                Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-                intent.putParcelableArrayListExtra(QUESTIONS_KEY, questionsData);
-                startActivity(intent);
 
-                break;
-           /* case R.id.sharefriends:
-                Log.e("share", "share");
-                Intent intentshare = new Intent();
-                intentshare.setAction(Intent.ACTION_SEND);
-                intentshare.setType("text/plain");
-                intentshare.putExtra(Intent.EXTRA_TEXT, " جرب الاختبار ، تعرف على نسبة حب شريكك لك وخذ نصائح خبراء النفس و العلاقات العاطفية " + getResources().getText(R.string.linkApp));
-                startActivity(Intent.createChooser(intentshare, "Share"));
-                break;*/
-            case R.id.IdButton_Statistics:
-startActivity(new Intent(this,StatisticesActivity.class));
-                break;
-            case R.id.IdButton_protection:
+            break;
 
-                break;
-            case R.id.IdButton_Infos:
-
-                break;
+            case 1:startActivity(new Intent(this,StatisticesActivity.class));
+             break;
 
         }
-
     }
 }
