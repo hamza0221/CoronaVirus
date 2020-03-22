@@ -1,32 +1,23 @@
 package com.training.coronavirus;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Space;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.training.coronavirus.BaseActivity;
-import com.training.coronavirus.IDSads;
-import com.training.coronavirus.Question;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 public class QuestionActivity extends BaseActivity implements View.OnClickListener {
 
@@ -126,7 +117,7 @@ questions.put(R.mipmap.diziness,"هل تشتكي من أوجاع في عدة أ�
        questionImage.setImageDrawable(getResources().getDrawable(new ArrayList<>(questions.keySet()).get(k)));
 
 int questionCounter=k+1;
-        questionNo.setText("السؤال " +questionCounter + " من 8 أسئلةً");
+        questionNo.setText("السؤال " +questionCounter + " من "+questions.size()+" أسئلةً");
 
 
 

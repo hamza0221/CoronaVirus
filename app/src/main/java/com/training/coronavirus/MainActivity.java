@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements  CoronaAdapter.ItemCli
         List<Integer> coronaImages=new ArrayList<>();
 
         coronaImages.add(R.mipmap.corona);
-        coronaImages.add(R.mipmap.corona_map);
+        coronaImages.add(R.mipmap.map);
         coronaImages.add(R.mipmap.corona_info);
         coronaImages.add(R.mipmap.corona_prevention);
 

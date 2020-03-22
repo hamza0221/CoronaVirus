@@ -28,5 +28,6 @@
     <color name="shadow">#EBF4FD</color>
     <color name="gray_question">#70808B</color>
     <color name="gray_radio">#5A687D</color>
+    <color name="gray_main">#DDDDDD</color>
 
 </resources>
