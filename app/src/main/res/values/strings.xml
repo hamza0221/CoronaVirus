@@ -20,5 +20,6 @@
     <string name="deaths">Deaths</string>
     <string name="recovered">Recovered</string>
     <string name="title_activity_corona_info">CoronaInfo</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

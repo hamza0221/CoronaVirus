@@ -5,32 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="12">
+    android:weightSum="12"
+        android:background="@color/cyan"
+    >
 
-
-    <TextView
-        android:id="@+id/textQNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="Question"
-        android:textColor="#f4511e
-
-
-
-
-
-"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textQuestion"
@@ -40,18 +18,17 @@
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_weight="3"
         android:text="question"
+        android:textColor="@color/gray_question"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textQNo" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <RadioGroup
         android:id="@+id/radiogroupChoices"
@@ -60,26 +37,65 @@
         android:layout_below="@+id/textQuestion"
 
 
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
 
     <TextView
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
-        android:layout_height="62dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_weight="1"
+        android:background="@drawable/rectangle_red"
+        android:padding="5dp"
         android:text="@string/btnNext"
-
-        android:textColor="#4CAF50"
-        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radiogroupChoices" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@mipmap/fever" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/cyan2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textQNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="Question"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

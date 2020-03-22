@@ -22,5 +22,11 @@
     <color name="blue">#0000FF</color>
     <color name="navy">#000080</color>
     <color name="black">#000000</color>
+    <color name="cyan">#E0F2FD</color>
+    <color name="cyan2">#53B0FE</color>
+    <color name="red_light">#FE7676</color>
+    <color name="shadow">#EBF4FD</color>
+    <color name="gray_question">#70808B</color>
+    <color name="gray_radio">#5A687D</color>
 
 </resources>

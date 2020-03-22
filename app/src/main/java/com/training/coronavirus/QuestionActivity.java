@@ -7,9 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Space;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -95,7 +99,7 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
 
         // questionImage.setVisibility(View.INVISIBLE);
 
-        question.setText(questionData.get(k).getText().toString());
+        question.setText(questionData.get(k).getText());
 
         questionNo.setText("السؤال " + (questionData.get(k).getId() + 1) + " من 8 أسئلةً");
         Log.d("listchoices", questionData.get(k).getChoicesList().toString());
@@ -111,12 +115,19 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
         // answer = questionData.get(k).getAnswer();
         for (int j = 0; j < questionData.get(k).getChoicesList().size(); j++) {
             RadioButton rb = new RadioButton(this);
+            rb.setButtonDrawable(getResources().getDrawable(R.drawable.null_selector));
+            rb.setBackground(getResources().getDrawable(R.drawable.my_selector));
             radioId = Integer.parseInt("1000" + (j + 1) + k);
             rb.setId(radioId);
-            rb.setText(questionData.get(k).getChoicesList().get(j));
+            rb.setText("  "+questionData.get(k).getChoicesList().get(j).replace("\"",""));
             rb.setTextSize(30);
+rb.setTextColor(getResources(). getColor(R.color.gray_radio));
             //  rb.setHeight(20);
             rg.addView(rb);
+            RadioGroup.LayoutParams layoutParams= (RadioGroup.LayoutParams) rb.getLayoutParams();
+            layoutParams.topMargin=20;
+            layoutParams.width= (int) (ScreenSize.getScreenSize(this).second*0.5f);
+            rb.setLayoutParams(layoutParams);
 
 
         }
