@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Space;
@@ -22,17 +23,21 @@ import com.training.coronavirus.IDSads;
 import com.training.coronavirus.Question;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class QuestionActivity extends BaseActivity implements View.OnClickListener {
-    ArrayList<Question> questionData = new ArrayList<Question>();
+
     private TextView question, questionNo;
     private RadioGroup rg;
     private TextView next;
     private Intent statsIntent;
     static final String SCORE_KEY = "SCORE_KEY";
     static final String QUESTIONS_SIZE_KEY = "QUESTIONS_SIZE_KEY";
-
-
+private ImageView questionImage;
+private LinkedHashMap<Integer,String> questions=new LinkedHashMap<>();
     int k, radioId, i = 0, score = 0, count_size;
     private InterstitialAd mInterstitialAd;
     private AlertDialog noResponseDialog;
@@ -49,11 +54,29 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        question = (TextView) findViewById(R.id.textQuestion);
-        rg = (RadioGroup) findViewById(R.id.radiogroupChoices);
-        questionNo = (TextView) findViewById(R.id.textQNo);
-        next = (TextView) findViewById(R.id.btnNext);
+
+questions.put(R.mipmap.fever,"هل لديك حمى  ؟");
+questions.put(R.mipmap.cough_fever,"هل تسعل بشدة ولفترات متكررة في اليوم الواحد ؟");
+questions.put(R.mipmap.diziness,"هل تشتكي من أوجاع في عدة أماكن في جسمك؟");
+
+        questions.put(R.mipmap.throat_pain,"هل تشعر بالتهاب في الحلق وحرقة عند مستوى الحنجرة؟");
+        questions.put(R.mipmap.fatigue,"هل تشعر بتعب و ارهاق شديدين يأثران على القيام بشؤونك اليومية ا ؟");
+        questions.put(R.mipmap.runny_nose,"هل لديك سيلان متواصل للأنف ؟");
+        questions.put(R.mipmap.breathing_difficuly,"هل تعاني من صعوبة في التنفس ؟");
+
+        questionImage=findViewById(R.id.question_image);
+        question = findViewById(R.id.textQuestion);
+        rg = findViewById(R.id.radiogroupChoices);
+        questionNo = findViewById(R.id.textQNo);
+        next = findViewById(R.id.btnNext);
         next.setOnClickListener(this);
+
+        ConstraintLayout.LayoutParams layoutParams= (ConstraintLayout.LayoutParams) questionImage.getLayoutParams();
+        layoutParams.width= (int) (ScreenSize.getScreenSize(this).first*0.2f);
+        layoutParams.height= (int) (ScreenSize.getScreenSize(this).second*0.22f);
+
+        questionImage.setLayoutParams(layoutParams);
+
 
         noResponseDialog=new AlertDialog.Builder(this).setPositiveButton("حسنا", dialogListener
         ).setMessage("يجب عليك اختيار اجابة").create();
@@ -64,8 +87,8 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
         statsIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         if (getIntent().getExtras() != null) {
 
-            questionData = getIntent().getExtras().getParcelableArrayList(MainActivity.QUESTIONS_KEY);
-            count_size = questionData.size();
+
+            count_size = questions.size();
 
 
             getQuestions(k);
@@ -99,13 +122,16 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
 
         // questionImage.setVisibility(View.INVISIBLE);
 
-        question.setText(questionData.get(k).getText());
+        question.setText(new ArrayList<>(questions.values()).get(k));
+       questionImage.setImageDrawable(getResources().getDrawable(new ArrayList<>(questions.keySet()).get(k)));
 
-        questionNo.setText("السؤال " + (questionData.get(k).getId() + 1) + " من 8 أسئلةً");
-        Log.d("listchoices", questionData.get(k).getChoicesList().toString());
+int questionCounter=k+1;
+        questionNo.setText("السؤال " +questionCounter + " من 8 أسئلةً");
 
 
-        // new URLImage(this).execute(questionData.get(k).getImageURL());
+
+
+                // new URLImage(this).execute(questionData.get(k).getImageURL());
         //set image with name
         // int id = getResources().getIdentifier(questionData.get(k).getImageURL(), "drawable", QuestionActivity.this.getPackageName());
 
@@ -113,26 +139,41 @@ public class QuestionActivity extends BaseActivity implements View.OnClickListen
 
 
         // answer = questionData.get(k).getAnswer();
-        for (int j = 0; j < questionData.get(k).getChoicesList().size(); j++) {
+        for (int j = 0; j < 4; j++) {
             RadioButton rb = new RadioButton(this);
             rb.setButtonDrawable(getResources().getDrawable(R.drawable.null_selector));
             rb.setBackground(getResources().getDrawable(R.drawable.my_selector));
             radioId = Integer.parseInt("1000" + (j + 1) + k);
             rb.setId(radioId);
-            rb.setText("  "+questionData.get(k).getChoicesList().get(j).replace("\"",""));
+            switch (j)
+            {
+                case 0: rb.setText("لا");
+                break;
+                case 1: rb.setText("ممكن");
+                    break;
+                case 2: rb.setText("قليلا");
+                    break;
+                case 3: rb.setText("متأكد");
+                    break;
+
+            }
+
+
             rb.setTextSize(30);
 rb.setTextColor(getResources(). getColor(R.color.gray_radio));
             //  rb.setHeight(20);
             rg.addView(rb);
             RadioGroup.LayoutParams layoutParams= (RadioGroup.LayoutParams) rb.getLayoutParams();
             layoutParams.topMargin=20;
+            rb.setPadding(0,0,20,0);
+
             layoutParams.width= (int) (ScreenSize.getScreenSize(this).second*0.5f);
             rb.setLayoutParams(layoutParams);
 
 
         }
         //change text of textview just before the stats activity
-        if (k == questionData.size() - 1) {
+        if (k ==count_size - 1) {
             next.setText(R.string.TextStats);
             next.setTextColor(getResources().getColor(R.color.orangeColor));
         }
@@ -153,8 +194,7 @@ rb.setTextColor(getResources(). getColor(R.color.gray_radio));
 
     void CalculateScore(int index) {
         switch (index) {
-            case 0:
-                break;
+
             case 1:
 
                 score += 1;
@@ -202,7 +242,7 @@ rb.setTextColor(getResources(). getColor(R.color.gray_radio));
                         Log.d("TAG", "The interstitial wasn't loaded yet.");
                     }
 
-                if (m < questionData.size())
+                if (m < count_size-1)
                 {
 
                     if(getIndexofSelectedRadioButton()!=-1)
