@@ -51,7 +51,7 @@ questions.put(R.mipmap.cough_fever,"هل تسعل بشدة ولفترات متك
 questions.put(R.mipmap.diziness,"هل تشتكي من أوجاع في عدة أماكن في جسمك؟");
 
         questions.put(R.mipmap.throat_pain,"هل تشعر بالتهاب في الحلق وحرقة عند مستوى الحنجرة؟");
-        questions.put(R.mipmap.fatigue,"هل تشعر بتعب و ارهاق شديدين يأثران على القيام بشؤونك اليومية ا ؟");
+        questions.put(R.mipmap.fatigue,"هل تشعر بتعب و ارهاق شديدين يأثران على القيام بشؤونك اليومية؟");
         questions.put(R.mipmap.runny_nose,"هل لديك سيلان متواصل للأنف ؟");
         questions.put(R.mipmap.breathing_difficuly,"هل تعاني من صعوبة في التنفس ؟");
 

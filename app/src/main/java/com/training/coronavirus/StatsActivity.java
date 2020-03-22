@@ -40,10 +40,10 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
         repeat.setOnClickListener(this);
         textAdvices = (TextView) findViewById(R.id.textAdvices);
         textAdvices.setOnClickListener(this);
-        tvshare = (TextView) findViewById(R.id.share);
+        tvshare = findViewById(R.id.share);
         tvshare.setOnClickListener(this);
         textResultLovePercent = (TextView) findViewById(R.id.textResultLovePercent);
-        heartImage = (ImageView) findViewById(R.id.imageheart);
+        heartImage = findViewById(R.id.imageheart);
         mWaveDrawable = new WaveDrawable(this, R.drawable.logo_app);
         heartImage.setImageDrawable(mWaveDrawable);
 

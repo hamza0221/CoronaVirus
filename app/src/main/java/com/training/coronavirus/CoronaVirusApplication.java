@@ -17,6 +17,8 @@ public class CoronaVirusApplication extends Application {
         Singleton.setUpWebView();
         Singleton.myWebViewInformation=new WebView(this);
         Singleton.setUpWebViewInformation();
+        Singleton.myWebViewPrevention=new WebView(this);
+        Singleton.setUpWebViewPrevention();
 
     }
 }
