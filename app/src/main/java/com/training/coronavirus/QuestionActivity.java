@@ -150,7 +150,7 @@ int questionCounter=k+1;
             }
 
 
-            rb.setTextSize(30);
+            rb.setTextSize(25);
 rb.setTextColor(getResources(). getColor(R.color.gray_radio));
             //  rb.setHeight(20);
             rg.addView(rb);
