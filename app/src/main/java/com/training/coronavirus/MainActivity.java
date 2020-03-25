@@ -1,18 +1,14 @@
 package com.training.coronavirus;
 
-import android.content.Intent;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements  CoronaAdapter.ItemClickListener {
 
@@ -46,7 +42,7 @@ public class MainActivity extends BaseActivity implements  CoronaAdapter.ItemCli
         coronaAdapter=new CoronaAdapter();
         coronaAdapter.setCoronaItems(coronaTextList);
         coronaAdapter.setCoronaImages(coronaImages);
-      coronaAdapter.setItemClickListener(this);
+        coronaAdapter.setItemClickListener(this);
         recyclerView.setAdapter(coronaAdapter);
 
 
@@ -63,6 +59,7 @@ public class MainActivity extends BaseActivity implements  CoronaAdapter.ItemCli
 
 
     }
+
 
     @Override
     public void onItemClickListener(int position) {

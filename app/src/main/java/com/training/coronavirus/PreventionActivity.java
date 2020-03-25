@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.view.View;
 
-public class PreventionActivity extends AppCompatActivity {
+public class PreventionActivity extends BaseActivity {
 ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ ConstraintLayout constraintLayout;
 constraintLayout=findViewById(R.id.prevention_container);
 constraintLayout.addView(Singleton.myWebViewPrevention);
 
+        setupAdAtBottom();
 
 
 

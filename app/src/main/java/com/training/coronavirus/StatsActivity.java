@@ -15,7 +15,9 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.race604.drawable.wave.WaveDrawable;
 
+
 public class StatsActivity extends BaseActivity implements View.OnClickListener, DialogFragmentAdvices.OnFragmentInteractionListener, RewardedVideoAdListener {
+
     TextView textAdvices;
     ImageView heartImage;
     private WaveDrawable mWaveDrawable;
@@ -71,7 +73,7 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
 
         loadRewardedVideoAd();
     }
-    private void loadRewardedVideoAd() {
+    public void loadRewardedVideoAd() {
         mRewardedVideoAd.loadAd(IDSads.ID_REWARDED_ADMOB,
                 new AdRequest.Builder().build());
     }
@@ -79,14 +81,13 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.textAdvices:
-              /*  rewarded =false;
+                rewarded =false;
                 if (mRewardedVideoAd.isLoaded()) {
                     mRewardedVideoAd.show();
                 }
                     else{
                         loadRewardedVideoAd();
-                }*/
-                ShowResult();
+                }
 
 
                 break;
@@ -109,6 +110,12 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
 
     }
     void ShowResult(){
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+        else{
+            loadRewardedVideoAd();
+        }
         DialogFragmentAdvices dialogFragmentAdvices = new DialogFragmentAdvices();
         Bundle args = new Bundle();
         args.putInt(SCORE_KEY, (int) CalculatePercent(score));
@@ -136,10 +143,7 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
     }
 
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 
     @Override
     public void onRewardedVideoAdLoaded() {
@@ -158,8 +162,8 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onRewardedVideoAdClosed() {
-        //if (rewarded)
-           // ShowResult();
+        if (rewarded)
+            ShowResult();
 
     }
 
@@ -183,6 +187,12 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onRewardedVideoCompleted() {
         rewarded =true;
+
+    }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

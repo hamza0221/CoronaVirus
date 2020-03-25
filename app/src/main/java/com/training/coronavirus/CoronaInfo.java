@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.view.View;
 
-public class CoronaInfo extends AppCompatActivity {
+public class CoronaInfo extends BaseActivity {
 ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ ConstraintLayout constraintLayout;
         constraintLayout.addView(Singleton.myWebViewInformation);
 
 
+        setupAdAtBottom();
 
 
 

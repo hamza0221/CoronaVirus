@@ -1,5 +1,6 @@
 package com.training.coronavirus;
 
+
 import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
@@ -13,7 +14,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import androidx.fragment.app.DialogFragment;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -131,6 +131,7 @@ public class DialogFragmentAdvices extends DialogFragment implements View.OnClic
         switch (v.getId()) {
             case R.id.btnClose:
                this.dismiss();
+
 
                break;
 

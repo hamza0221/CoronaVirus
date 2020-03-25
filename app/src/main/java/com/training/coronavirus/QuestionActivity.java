@@ -166,7 +166,8 @@ rb.setTextColor(getResources(). getColor(R.color.gray_radio));
         //change text of textview just before the stats activity
         if (k ==count_size - 1) {
             next.setText(R.string.TextStats);
-            next.setTextColor(getResources().getColor(R.color.orangeColor));
+            next.setTextColor(getResources().getColor(R.color.yellow));
+            next.setTextSize(32);
         }
 
         next.setOnClickListener(this);
@@ -224,7 +225,7 @@ rb.setTextColor(getResources(). getColor(R.color.gray_radio));
 
 
                 int m = ++i;
-                if (m==2 || m==5|| m==7)
+                if (m==2 || m==4 || m==5|| m==6)
                     if (mInterstitialAd.isLoaded()) {
                         mInterstitialAd.show();
                     } else {
@@ -233,7 +234,7 @@ rb.setTextColor(getResources(). getColor(R.color.gray_radio));
                         Log.d("TAG", "The interstitial wasn't loaded yet.");
                     }
 
-                if (m < count_size-1)
+                if (m < count_size/*-1*/)
                 {
 
                     if(getIndexofSelectedRadioButton()!=-1)
