@@ -101,7 +101,7 @@ public class StatsActivity extends BaseActivity implements View.OnClickListener,
                 Intent intentshare = new Intent();
                 intentshare.setAction(Intent.ACTION_SEND);
                 intentshare.setType("text/plain");
-                intentshare.putExtra(Intent.EXTRA_TEXT, "نسبة مرضي بفيروس الكورونا حسب الإختبار هي " + finaScore + " بالمئة " + getResources().getText(R.string.linkApp));
+                intentshare.putExtra(Intent.EXTRA_TEXT, "نسبة مرضي بفيروس الكورونا حسب الإختبار هي " + finaScore +   "  بالمئة, يمكنك معرفة نسبة مرضك على هذا الرابط   "+ getString(R.string.linkApp));
                 startActivity(Intent.createChooser(intentshare, "Share"));
                 break;
 
