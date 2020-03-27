@@ -90,7 +90,7 @@ public class BaseActivity extends AppCompatActivity {
         AdView mAdView = (AdView) ad.findViewById(R.id.adView);
 //        mAdView.setAdSize(AdSize.BANNER);
 //        mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("25A08F96A139A6963CF40FF3CBFA0D62").build();
+        AdRequest adRequest = new AdRequest.Builder()./*addTestDevice("25A08F96A139A6963CF40FF3CBFA0D62").*/build();
         //RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("25A08F96A139A6963CF40FF3CBFA0D62");
 
         mAdView.loadAd(adRequest);
